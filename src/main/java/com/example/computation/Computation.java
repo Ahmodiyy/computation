@@ -11,5 +11,4 @@ public class Computation {
         }
         return result;
     }
-
 }
