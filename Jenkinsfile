@@ -36,8 +36,16 @@ pipeline {
             }
         }
         stage("CheckStyle") {
-                steps {
-                    sh "./gradlew checkstyleMain"
+              steps {
+                sh "./gradlew checkstyleMain"
+                publishHTML(target: [
+                    allowMissing: false,
+                    alwaysLinkToLastBuild: false,
+                    keepAll: true,
+                    reportDir: 'build/reports/checkstyle',
+                    reportFiles: 'main.html',
+                    reportName: 'Checkstyle Report'
+                ])
             }
         }
     }
