@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Checkouts') {
             steps {
                 git url: 'https://github.com/Ahmodiyy/computation.git', branch: 'main'
             }
