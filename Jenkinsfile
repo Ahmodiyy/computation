@@ -7,7 +7,7 @@ pipeline {
                 git url: 'https://github.com/Ahmodiyy/computation.git', branch: 'main'
             }
         }
-        stage("Compile") {
+        stage("Compiles") {
                 steps {
                     sh "chmod +x gradlew"
                     sh "java -version"
