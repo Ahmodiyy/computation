@@ -49,4 +49,11 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            mail to: 'codeble101@gmail.com',
+                 subject: "Completed Pipeline: ${currentBuild.fullDisplayName}",
+                 body: "Your build completed check : ${env.BUILD_URL}"
+        }
+    }
 }
