@@ -54,6 +54,7 @@ pipeline {
             mail to: 'codeble101@gmail.com',
                  subject: "Completed Pipeline: ${currentBuild.fullDisplayName}",
                  body: "Your build completed check : ${env.BUILD_URL}"
+                 slackSend channel: '#slackah', color: 'good', message: "The pipeline ${currentBuild.fullDisplayName}"
         }
     }
 }
