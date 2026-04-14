@@ -9,7 +9,7 @@ pipeline {
         }
         stage("Compiles") {
                 steps {
-                    bat "chmod +x gradlew"
+                    //bat "chmod +x gradlew"
                     bat "java -version"
                     bat "./gradlew --version"
                     bat "./gradlew clean"
