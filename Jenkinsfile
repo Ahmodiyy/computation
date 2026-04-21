@@ -49,6 +49,22 @@ pipeline {
                 ])
             }
         }
+        stage("Dockerized computation backend") {
+                steps {
+                    bat "docker build -t ahmodiyy/computation ."
+            }
+        }
+        stage("Run computation backend") {
+                steps {
+                    bat "docker run -p 8081:8081 --name computation ahmodiyy/computation"
+            }
+        }
+        stage("Acceptance test") {
+                steps {
+                    bat "./gradlew acceptanceTest"
+            }
+        }
+
     }
     post {
         always {
