@@ -1,6 +1,14 @@
-package com.example.computation;
+package com.example.computation.service;
 
-public class Computation {
+import org.springframework.stereotype.Service;
+
+@Service
+public class ComputationService {
+
+    public double sum(double a, double b){
+        return a + b;
+    }
+
     static final double PI = 3.142;
     public double compute(double... nums){
 
