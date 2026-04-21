@@ -34,8 +34,22 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	// Source: https://mvnrepository.com/artifact/io.cucumber/cucumber-java
+	implementation("io.cucumber:cucumber-java:7.20.0")
+	// Source: https://mvnrepository.com/artifact/io.cucumber/cucumber-junit
+	testImplementation("io.cucumber:cucumber-junit:7.20.0")
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.register('acceptanceTest', Test) {
+	include '**/acceptance/**'
+	systemProperties System.getProperties()
+}
+
+test {
+	useJUnitPlatform()
+	exclude '**/acceptance/**'
 }
