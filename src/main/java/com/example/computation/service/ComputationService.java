@@ -1,11 +1,19 @@
 package com.example.computation.service;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ComputationService {
 
+    @Cacheable("sum")
     public double sum(double a, double b){
+        try {
+            Thread.sleep(3000);
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return a + b;
     }
 
